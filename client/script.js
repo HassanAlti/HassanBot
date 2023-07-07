@@ -17,7 +17,7 @@ function loader(element) {
     if (element.textContent === "....") {
       element.textContent = "";
     }
-  }, 20);
+  }, 300);
 }
 
 function typeText(element, text) {
@@ -27,10 +27,11 @@ function typeText(element, text) {
     if (index < text.length) {
       element.innerHTML += text.charAt(index);
       index++;
+      chatContainer.scrollTop = chatContainer.scrollHeight;
     } else {
       clearInterval(interval);
     }
-  }, 20);
+  }, 10);
 }
 
 // generate unique ID for each message div of bot
