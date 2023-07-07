@@ -103,6 +103,8 @@ const handleSubmit = async (e) => {
     const parsedData = data.response.trim(); // trims any trailing spaces/'\n'
 
     messageDiv.innerHTML += parsedData;
+
+    chatContainer.scrollTop = chatContainer.scrollHeight;
   } else {
     const err = await response.text();
 
