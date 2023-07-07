@@ -85,13 +85,15 @@ const handleSubmit = async (e) => {
   // messageDiv.innerHTML = "..."
   loader(messageDiv);
 
+  
+const originalPrompt = data.get("prompt");
   const response = await fetch("https://chatwidget.onrender.com/chat", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      prompt: `format into markdown without changing anything ${data.get("prompt")} `,
+      prompt: `Format into Markdown without changing anything :` + originalPrompt,
     }),
   });
 
