@@ -108,7 +108,7 @@ const handleSubmit = async (e) => {
   // messageDiv.innerHTML = "..."
   loader(messageDiv);
 
-   console.log(usernameClerk + userIdClerk);
+   console.log(userNameClerk + userIdClerk);
 
   
 const originalPrompt = data.get("prompt");
