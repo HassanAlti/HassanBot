@@ -110,6 +110,8 @@ const handleSubmit = async (e) => {
   // messageDiv.innerHTML = "..."
   loader(messageDiv);
 
+   console.log(usernameClerk + userIdClerk);
+
   
 const originalPrompt = data.get("prompt");
   const response = await fetch("https://tatebot-53ho.onrender.com/api/chat", {
