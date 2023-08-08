@@ -81,7 +81,7 @@ function generateRandomString(length) {
 
   let userNameClerk = generateRandomString(10);
  let userIdClerk = generateRandomNumber();
-  console.log(usernameClerk + userIdClerk);
+  console.log(userNameClerk + userIdClerk);
 
 
 const handleSubmit = async (e) => {
