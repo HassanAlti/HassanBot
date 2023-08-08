@@ -77,14 +77,12 @@ function generateRandomString(length) {
   return result;
 }
 
-let userIdClerk;
-  let userNameClerk;
 
-document.addEventListener("DOMContentLoaded", function() {
-   userNameClerk = generateRandomString(10);
-  userIdClerk = generateRandomNumber();
+
+  let userNameClerk = generateRandomString(10);
+ let userIdClerk = generateRandomNumber();
   console.log(usernameClerk + userIdClerk);
-}
+
 
 const handleSubmit = async (e) => {
   e.preventDefault();
