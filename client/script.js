@@ -61,6 +61,22 @@ function chatStripe(isAi, value, uniqueId) {
     `;
 }
 
+function generateRandomNumber() {
+  const min = 1000000000; // Smallest 10-digit number
+  const max = 9999999999; // Largest 10-digit number
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function generateRandomString(length) {
+  const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  let result = '';
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    result += characters.charAt(randomIndex);
+  }
+  return result;
+}
+
 const handleSubmit = async (e) => {
   e.preventDefault();
 
@@ -74,6 +90,8 @@ const handleSubmit = async (e) => {
 
   // bot's chatstripe
   const uniqueId = generateUniqueId();
+  const userIdClerk = generateRandomNumber();
+  const userNameClerk = generateRandomString(10);
   chatContainer.innerHTML += chatStripe(true, " ", uniqueId);
 
   // to focus scroll to the bottom
@@ -87,13 +105,17 @@ const handleSubmit = async (e) => {
 
   
 const originalPrompt = data.get("prompt");
-  const response = await fetch("https://chatwidget.onrender.com/chat", {
+  const response = await fetch("http://159.223.198.55/api/chat", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "name" : "Andrew Tate"
     },
     body: JSON.stringify({
-      prompt: `Format into Markdown without changing anything :` + originalPrompt,
+      prompt:  originalPrompt,
+      isText: false,
+      userId: userIdClerk,
+      userName: userNameClerk
     }),
   });
 
@@ -101,8 +123,8 @@ const originalPrompt = data.get("prompt");
   messageDiv.innerHTML = " ";
 
   if (response.ok) {
-    const data = await response.json();
-    const parsedData = data.response.trim(); // trims any trailing spaces/'\n'
+    const data = await response.text();
+    const parsedData = data.trim(); // trims any trailing spaces/'\n'
 
     messageDiv.innerHTML += parsedData;
 
