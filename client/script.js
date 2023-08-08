@@ -77,6 +77,15 @@ function generateRandomString(length) {
   return result;
 }
 
+let userIdClerk;
+  let userNameClerk;
+
+document.addEventListener("DOMContentLoaded", function() {
+   userNameClerk = generateRandomString(10);
+  userIdClerk = generateRandomNumber();
+  console.log(usernameClerk + userIdClerk);
+}
+
 const handleSubmit = async (e) => {
   e.preventDefault();
 
@@ -90,8 +99,6 @@ const handleSubmit = async (e) => {
 
   // bot's chatstripe
   const uniqueId = generateUniqueId();
-  const userIdClerk = generateRandomNumber();
-  const userNameClerk = generateRandomString(10);
   chatContainer.innerHTML += chatStripe(true, " ", uniqueId);
 
   // to focus scroll to the bottom
