@@ -112,7 +112,7 @@ const handleSubmit = async (e) => {
 
   
 const originalPrompt = data.get("prompt");
-  const response = await fetch("https://tatebot-53ho.onrender.com/api/chat", {
+  const response = await fetch("https://tatecomp.onrender.com/api/chat", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
