@@ -112,7 +112,7 @@ const handleSubmit = async (e) => {
 
   
 const originalPrompt = data.get("prompt");
-  const response = await fetch("https://naughtygf.onrender.com/api/chat", {
+  const response = await fetch("https://chatbotchars.xyz/api/chat", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
