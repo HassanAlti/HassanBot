@@ -116,11 +116,10 @@ const originalPrompt = data.get("prompt");
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "name" : "gf"
+      "name" : "serenith"
     },
     body: JSON.stringify({
       prompt:  originalPrompt,
-      isText: false,
       userId: userIdClerk,
       userName: userNameClerk
     }),
@@ -130,13 +129,15 @@ const originalPrompt = data.get("prompt");
   messageDiv.innerHTML = " ";
 
   if (response.ok) {
-    const data = await response.text();
-    const parsedData = data.trim(); // trims any trailing spaces/'\n'
+    const json = await response.json(); // Parse the JSON response into a JavaScript object
+    const text = json.text
+
+    const parsedData = text.trim();
 
     messageDiv.innerHTML += parsedData;
 
     chatContainer.scrollTop = chatContainer.scrollHeight;
-  } else {
+  }else {
     const err = await response.text();
 
     messageDiv.innerHTML = "Something went wrong";
