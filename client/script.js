@@ -116,7 +116,7 @@ const originalPrompt = data.get("prompt");
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "name" : "gf"
+      "name" : "motivation"
     },
     body: JSON.stringify({
       prompt:  originalPrompt,
